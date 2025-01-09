@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor with AutoComplete System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="editor">
+        <nav class="navbar">
+            <span class="title">Text Editor</span>
+            <div class="btn">
+                <button id="addWordsBtn">Add Words</button>
+                <button id="recentWordsBtn">Show Recent Copies</button>
+                <button id="bookmarkBtn">Bookmark</button>
+                <button id="navigateBtn">Navigate Bookmarks</button>
+                <button id="checkParenthesesBtn">Check Parentheses</button>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="editor-container">
+                <textarea id="codeEditor"></textarea>
+                <ul id="recentWords" class="suggestions" style="display: none;"></ul> 
+                <ul id="bookmarkList" style="display: none;"></ul>
+            </div>
+            <ul id="suggestions" class="suggestions"></ul> 
+            <button id="addWordBtn" style="display: none;">Add Word</button> 
+        </div>
+        <div id="addWordModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Add Words</h2>
+                <div id="x">
+                    <textarea id="wordInput" placeholder="Enter words separated by commas"></textarea>
+                    <button id="addWordsButton">Add Words</button>
+                </div>
+            </div>
+        </div>
+        <div class="current-word-suggestion"></div>
+    </div>
+    <!-- Modal for adding words -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="suggestions.js"></script>
+    <script src="priorityQueue.js"></script>
+    <script src="trie.js"></script>
+    <script src="recent.js"></script>
+    <script src="bookmark.js"></script>
+    <script src="checkParentheses.js"></script>
+</body>
+</html>

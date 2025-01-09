@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column; /* Stack navbar and editor */
+    justify-content: flex-start;
+    width: 100vw; /* Ensure full width */
+}
+
+.navbar {
+    position: static;
+    display: flex;
+    justify-content: space-between; /* Space out title and buttons */
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    width: 100vw;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 2vw;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+#recentWords {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 10px; /* Space between editor and recent words */
+    border: 1px solid #ccc;
+    background-color: white;
+    position: relative; /* Position relative to parent */
+    max-height: 150px;
+    overflow-y: auto;
+    width: 14vw; /* Width for recent words list */
+    display: none; /*Hidden by default */
+}
+.container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.editor-container {
+    margin-top: 10px; /* Adjusted for navbar */
+    display: flex;
+    width: 100%;
+    min-height: 75vh;
+    height: 100%; /* Height for the editor area */
+}
+
+
+
+.CodeMirror {
+    position: static;
+    flex-grow: 1; /*Allow the editor to take available space*/
+    min-height: 75vh;
+    height: 100%;
+    border: 2px solid #ccc;
+    height: 100%; /* Full height of the container */
+}
+
+#suggestions {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 5000; /* High z-index to appear above other elements */
+    display: none; /* Initially hidden */
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    width: 70%; /* Set width dynamically or to a specific value */
+}
+
+#suggestions li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#suggestions li.highlighted {
+    background-color: #e0e0e0; /* Highlighted background */
+}
+
+#bookmarkList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 10;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 30%; 
+    display: none; /* Initially hidden */
+}
+.unmatched-line {
+    background-color: rgba(255, 0, 0, 0.3); /* Highlight for unmatched lines */
+}
+
+#suggestions {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+}
+
+#suggestions li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#suggestions li.highlighted {
+    background-color: #e0e0e0; /* Highlighted background */
+}
+
+
+.closest-suggestion {
+    font-style: italic; /* Make it italic to differentiate */
+    color: #555; /* Dim color */
+}
+
+#addWordModal{
+    position: sticky;
+}
+
+.modal {
+    height: 18%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 50vw;
+}
+  
+#wordInput{
+    margin-top: 10px;
+    width: 30vw;
+}
+
+#x{
+    display: flex;
+}
+
+.close {
+    color:#0056b3;
+    font-size: x-large;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    float: right;
+    height: 30px;
+    width: 30px;
+}
+
+.suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute; /* Ensure it's positioned absolutely */
+    z-index: 10;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 70%; /* Set width as needed */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+}
+
+
+
+.suggestions li, #recentWords li ,#bookmarkList li{
+    font-size: small;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.suggestions li:hover, #recentWords li:hover,#bookmarkList li:hover {
+    background-color: #eaeaea;
+}
+
+.suggestions li.highlighted {
+    background-color: #d3d3d3; /* Light gray background for highlighted suggestion */
+}
+
